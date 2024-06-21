@@ -10,16 +10,4 @@ import com.ruoyi.pojo.GroupName;
 */
 public interface GroupNameMapper {
 
-    int deleteByPrimaryKey(Long id);
-
-    int insert(GroupName record);
-
-    int insertSelective(GroupName record);
-
-    GroupName selectByPrimaryKey(Long id);
-
-    int updateByPrimaryKeySelective(GroupName record);
-
-    int updateByPrimaryKey(GroupName record);
-
 }

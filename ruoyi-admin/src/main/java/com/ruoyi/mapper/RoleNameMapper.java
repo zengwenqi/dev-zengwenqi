@@ -10,16 +10,4 @@ import com.ruoyi.pojo.RoleName;
 */
 public interface RoleNameMapper {
 
-    int deleteByPrimaryKey(Long id);
-
-    int insert(RoleName record);
-
-    int insertSelective(RoleName record);
-
-    RoleName selectByPrimaryKey(Long id);
-
-    int updateByPrimaryKeySelective(RoleName record);
-
-    int updateByPrimaryKey(RoleName record);
-
 }

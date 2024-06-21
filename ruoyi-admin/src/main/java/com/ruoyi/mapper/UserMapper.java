@@ -1,6 +1,12 @@
 package com.ruoyi.mapper;
 
 import com.ruoyi.pojo.User;
+import com.ruoyi.pojo.vo.UserList;
+import com.ruoyi.pojo.vo.UserVo;
+import org.apache.ibatis.annotations.Param;
+import org.springframework.web.bind.annotation.PathVariable;
+
+import java.util.List;
 
 /**
 * @author 曾文琪
@@ -10,16 +16,5 @@ import com.ruoyi.pojo.User;
 */
 public interface UserMapper {
 
-    int deleteByPrimaryKey(Long id);
-
-    int insert(User record);
-
-    int insertSelective(User record);
-
-    User selectByPrimaryKey(Long id);
-
-    int updateByPrimaryKeySelective(User record);
-
-    int updateByPrimaryKey(User record);
-
+    List<UserList> list(@Param("group") String group, @Param("role") String role, @Param("school") String school);
 }

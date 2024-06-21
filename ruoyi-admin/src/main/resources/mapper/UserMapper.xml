@@ -14,86 +14,22 @@
             <result property="school" column="school" jdbcType="VARCHAR"/>
     </resultMap>
 
-    <sql id="Base_Column_List">
-        user_id,role_id,group_id,
-        nickname,username,password,
-        school
-    </sql>
-
-    <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
-        select
-        <include refid="Base_Column_List" />
-        from user
-        where  user_id = #{userId,jdbcType=INTEGER} 
+    <select id="list" resultType="com.ruoyi.pojo.vo.UserList">
+        select rn.role,u.school,u.nickname,gn.group,u.username from user u
+            join role_name rn on u.role_id = rn.role_id
+            join group_name gn on u.group_id = gn.group_id
+        <trim prefix="where" prefixOverrides="and">
+            <if test="role!=null and role!=''">
+                and rn.role = #{role}
+            </if>
+            <if test="school!=null and school!=''">
+                and u.school = #{school}
+            </if>
+            <if test="group!=null and group!=''">
+                and gn = #{group}
+            </if>
+        </trim>
     </select>
 
-    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
-        delete from user
-        where  user_id = #{userId,jdbcType=INTEGER} 
-    </delete>
-    <insert id="insert" keyColumn="user_id" keyProperty="userId" parameterType="com.ruoyi.pojo.User" useGeneratedKeys="true">
-        insert into user
-        ( user_id,role_id,group_id
-        ,nickname,username,password
-        ,school)
-        values (#{userId,jdbcType=INTEGER},#{roleId,jdbcType=INTEGER},#{groupId,jdbcType=INTEGER}
-        ,#{nickname,jdbcType=VARCHAR},#{username,jdbcType=VARCHAR},#{password,jdbcType=VARCHAR}
-        ,#{school,jdbcType=VARCHAR})
-    </insert>
-    <insert id="insertSelective" keyColumn="user_id" keyProperty="userId" parameterType="com.ruoyi.pojo.User" useGeneratedKeys="true">
-        insert into user
-        <trim prefix="(" suffix=")" suffixOverrides=",">
-                <if test="userId != null">user_id,</if>
-                <if test="roleId != null">role_id,</if>
-                <if test="groupId != null">group_id,</if>
-                <if test="nickname != null">nickname,</if>
-                <if test="username != null">username,</if>
-                <if test="password != null">password,</if>
-                <if test="school != null">school,</if>
-        </trim>
-        <trim prefix="values (" suffix=")" suffixOverrides=",">
-                <if test="userId != null">#{userId,jdbcType=INTEGER},</if>
-                <if test="roleId != null">#{roleId,jdbcType=INTEGER},</if>
-                <if test="groupId != null">#{groupId,jdbcType=INTEGER},</if>
-                <if test="nickname != null">#{nickname,jdbcType=VARCHAR},</if>
-                <if test="username != null">#{username,jdbcType=VARCHAR},</if>
-                <if test="password != null">#{password,jdbcType=VARCHAR},</if>
-                <if test="school != null">#{school,jdbcType=VARCHAR},</if>
-        </trim>
-    </insert>
-    <update id="updateByPrimaryKeySelective" parameterType="com.ruoyi.pojo.User">
-        update user
-        <set>
-                <if test="roleId != null">
-                    role_id = #{roleId,jdbcType=INTEGER},
-                </if>
-                <if test="groupId != null">
-                    group_id = #{groupId,jdbcType=INTEGER},
-                </if>
-                <if test="nickname != null">
-                    nickname = #{nickname,jdbcType=VARCHAR},
-                </if>
-                <if test="username != null">
-                    username = #{username,jdbcType=VARCHAR},
-                </if>
-                <if test="password != null">
-                    password = #{password,jdbcType=VARCHAR},
-                </if>
-                <if test="school != null">
-                    school = #{school,jdbcType=VARCHAR},
-                </if>
-        </set>
-        where   user_id = #{userId,jdbcType=INTEGER} 
-    </update>
-    <update id="updateByPrimaryKey" parameterType="com.ruoyi.pojo.User">
-        update user
-        set 
-            role_id =  #{roleId,jdbcType=INTEGER},
-            group_id =  #{groupId,jdbcType=INTEGER},
-            nickname =  #{nickname,jdbcType=VARCHAR},
-            username =  #{username,jdbcType=VARCHAR},
-            password =  #{password,jdbcType=VARCHAR},
-            school =  #{school,jdbcType=VARCHAR}
-        where   user_id = #{userId,jdbcType=INTEGER} 
-    </update>
+
 </mapper>
