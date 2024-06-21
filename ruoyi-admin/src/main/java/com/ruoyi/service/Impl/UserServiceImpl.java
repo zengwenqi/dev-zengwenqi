@@ -13,6 +13,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -33,5 +34,42 @@ public class UserServiceImpl implements UserService {
             return Result.ok(userPageInfo);
         }
         return Result.build(null,ResultCodeEnum.NODATA);
+    }
+
+    @Transactional
+    @ApiOperation("添加账号数据")
+    @Override
+    public Result add(User user) {
+        Integer i = userMapper.selectCount(user.getNickname());
+        if (i==0){
+            Integer o = userMapper.add(user);
+            if (o==0){
+                return Result.build(null,ResultCodeEnum.UNKNOW_ERROR);
+            }
+            return Result.ok(null);
+        }
+        return Result.build(null,ResultCodeEnum.USERNAME_USED);
+    }
+
+    @Transactional
+    @ApiOperation("更新账号数据")
+    @Override
+    public Result update(User user) {
+        Integer i = userMapper.update(user);
+        if (i==0){
+            return Result.build(null,ResultCodeEnum.UNKNOW_ERROR);
+        }
+        return Result.ok(null);
+    }
+
+    @Transactional
+    @ApiOperation("根据id删除账号数据")
+    @Override
+    public Result deleteById(Integer id) {
+        Integer i = userMapper.deleteById(id);
+        if (i==0){
+            return Result.build(null,ResultCodeEnum.UNKNOW_ERROR);
+        }
+        return Result.ok(null);
     }
 }

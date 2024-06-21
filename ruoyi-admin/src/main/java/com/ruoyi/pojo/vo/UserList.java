@@ -7,6 +7,9 @@ import lombok.Data;
 @Data
 public class UserList {
 
+    @Schema(title = "角色id")
+    private Integer userId;
+
     @Schema(title = "角色名")
     private String role;
 
