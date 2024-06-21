@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.mapper.WorksMapper">
+
+    <resultMap id="BaseResultMap" type="com.ruoyi.pojo.Works">
+            <id property="worksId" column="works_id" jdbcType="INTEGER"/>
+            <result property="userId" column="user_id" jdbcType="INTEGER"/>
+            <result property="worksName" column="works_name" jdbcType="VARCHAR"/>
+            <result property="phone" column="phone" jdbcType="VARCHAR"/>
+            <result property="scole" column="scole" jdbcType="VARCHAR"/>
+            <result property="worksDate" column="works_date" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        works_id,user_id,works_name,
+        phone,scole,works_date
+    </sql>
+
+    <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from works
+        where  works_id = #{worksId,jdbcType=INTEGER} 
+    </select>
+
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+        delete from works
+        where  works_id = #{worksId,jdbcType=INTEGER} 
+    </delete>
+    <insert id="insert" keyColumn="works_id" keyProperty="worksId" parameterType="com.ruoyi.pojo.Works" useGeneratedKeys="true">
+        insert into works
+        ( works_id,user_id,works_name
+        ,phone,scole,works_date
+        )
+        values (#{worksId,jdbcType=INTEGER},#{userId,jdbcType=INTEGER},#{worksName,jdbcType=VARCHAR}
+        ,#{phone,jdbcType=VARCHAR},#{scole,jdbcType=VARCHAR},#{worksDate,jdbcType=TIMESTAMP}
+        )
+    </insert>
+    <insert id="insertSelective" keyColumn="works_id" keyProperty="worksId" parameterType="com.ruoyi.pojo.Works" useGeneratedKeys="true">
+        insert into works
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+                <if test="worksId != null">works_id,</if>
+                <if test="userId != null">user_id,</if>
+                <if test="worksName != null">works_name,</if>
+                <if test="phone != null">phone,</if>
+                <if test="scole != null">scole,</if>
+                <if test="worksDate != null">works_date,</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+                <if test="worksId != null">#{worksId,jdbcType=INTEGER},</if>
+                <if test="userId != null">#{userId,jdbcType=INTEGER},</if>
+                <if test="worksName != null">#{worksName,jdbcType=VARCHAR},</if>
+                <if test="phone != null">#{phone,jdbcType=VARCHAR},</if>
+                <if test="scole != null">#{scole,jdbcType=VARCHAR},</if>
+                <if test="worksDate != null">#{worksDate,jdbcType=TIMESTAMP},</if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.ruoyi.pojo.Works">
+        update works
+        <set>
+                <if test="userId != null">
+                    user_id = #{userId,jdbcType=INTEGER},
+                </if>
+                <if test="worksName != null">
+                    works_name = #{worksName,jdbcType=VARCHAR},
+                </if>
+                <if test="phone != null">
+                    phone = #{phone,jdbcType=VARCHAR},
+                </if>
+                <if test="scole != null">
+                    scole = #{scole,jdbcType=VARCHAR},
+                </if>
+                <if test="worksDate != null">
+                    works_date = #{worksDate,jdbcType=TIMESTAMP},
+                </if>
+        </set>
+        where   works_id = #{worksId,jdbcType=INTEGER} 
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.ruoyi.pojo.Works">
+        update works
+        set 
+            user_id =  #{userId,jdbcType=INTEGER},
+            works_name =  #{worksName,jdbcType=VARCHAR},
+            phone =  #{phone,jdbcType=VARCHAR},
+            scole =  #{scole,jdbcType=VARCHAR},
+            works_date =  #{worksDate,jdbcType=TIMESTAMP}
+        where   works_id = #{worksId,jdbcType=INTEGER} 
+    </update>
+</mapper>

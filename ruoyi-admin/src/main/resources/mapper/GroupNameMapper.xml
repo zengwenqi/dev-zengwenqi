@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.mapper.GroupNameMapper">
+
+    <resultMap id="BaseResultMap" type="com.ruoyi.pojo.GroupName">
+            <id property="groupId" column="group_id" jdbcType="INTEGER"/>
+            <result property="group" column="group" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        group_id,group
+    </sql>
+
+    <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from group_name
+        where  group_id = #{groupId,jdbcType=INTEGER} 
+    </select>
+
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+        delete from group_name
+        where  group_id = #{groupId,jdbcType=INTEGER} 
+    </delete>
+    <insert id="insert" keyColumn="group_id" keyProperty="groupId" parameterType="com.ruoyi.pojo.GroupName" useGeneratedKeys="true">
+        insert into group_name
+        ( group_id,group)
+        values (#{groupId,jdbcType=INTEGER},#{group,jdbcType=VARCHAR})
+    </insert>
+    <insert id="insertSelective" keyColumn="group_id" keyProperty="groupId" parameterType="com.ruoyi.pojo.GroupName" useGeneratedKeys="true">
+        insert into group_name
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+                <if test="groupId != null">group_id,</if>
+                <if test="group != null">group,</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+                <if test="groupId != null">#{groupId,jdbcType=INTEGER},</if>
+                <if test="group != null">#{group,jdbcType=VARCHAR},</if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.ruoyi.pojo.GroupName">
+        update group_name
+        <set>
+                <if test="group != null">
+                    group = #{group,jdbcType=VARCHAR},
+                </if>
+        </set>
+        where   group_id = #{groupId,jdbcType=INTEGER} 
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.ruoyi.pojo.GroupName">
+        update group_name
+        set 
+            group =  #{group,jdbcType=VARCHAR}
+        where   group_id = #{groupId,jdbcType=INTEGER} 
+    </update>
+</mapper>

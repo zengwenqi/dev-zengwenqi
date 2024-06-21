@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.mapper.EvaluateMapper">
+
+    <resultMap id="BaseResultMap" type="com.ruoyi.pojo.Evaluate">
+            <id property="evalId" column="eval_id" jdbcType="INTEGER"/>
+            <result property="worksId" column="works_id" jdbcType="INTEGER"/>
+            <result property="userId" column="user_id" jdbcType="INTEGER"/>
+            <result property="eval1" column="eval1" jdbcType="VARCHAR"/>
+            <result property="eval2" column="eval2" jdbcType="VARCHAR"/>
+            <result property="eval3" column="eval3" jdbcType="VARCHAR"/>
+            <result property="eval4" column="eval4" jdbcType="VARCHAR"/>
+            <result property="eval5" column="eval5" jdbcType="VARCHAR"/>
+            <result property="eval6" column="eval6" jdbcType="VARCHAR"/>
+            <result property="evalTime" column="eval_time" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        eval_id,works_id,user_id,
+        eval1,eval2,eval3,
+        eval4,eval5,eval6,
+        eval_time
+    </sql>
+
+    <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from evaluate
+        where  eval_id = #{evalId,jdbcType=INTEGER} 
+    </select>
+
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+        delete from evaluate
+        where  eval_id = #{evalId,jdbcType=INTEGER} 
+    </delete>
+    <insert id="insert" keyColumn="eval_id" keyProperty="evalId" parameterType="com.ruoyi.pojo.Evaluate" useGeneratedKeys="true">
+        insert into evaluate
+        ( eval_id,works_id,user_id
+        ,eval1,eval2,eval3
+        ,eval4,eval5,eval6
+        ,eval_time)
+        values (#{evalId,jdbcType=INTEGER},#{worksId,jdbcType=INTEGER},#{userId,jdbcType=INTEGER}
+        ,#{eval1,jdbcType=VARCHAR},#{eval2,jdbcType=VARCHAR},#{eval3,jdbcType=VARCHAR}
+        ,#{eval4,jdbcType=VARCHAR},#{eval5,jdbcType=VARCHAR},#{eval6,jdbcType=VARCHAR}
+        ,#{evalTime,jdbcType=TIMESTAMP})
+    </insert>
+    <insert id="insertSelective" keyColumn="eval_id" keyProperty="evalId" parameterType="com.ruoyi.pojo.Evaluate" useGeneratedKeys="true">
+        insert into evaluate
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+                <if test="evalId != null">eval_id,</if>
+                <if test="worksId != null">works_id,</if>
+                <if test="userId != null">user_id,</if>
+                <if test="eval1 != null">eval1,</if>
+                <if test="eval2 != null">eval2,</if>
+                <if test="eval3 != null">eval3,</if>
+                <if test="eval4 != null">eval4,</if>
+                <if test="eval5 != null">eval5,</if>
+                <if test="eval6 != null">eval6,</if>
+                <if test="evalTime != null">eval_time,</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+                <if test="evalId != null">#{evalId,jdbcType=INTEGER},</if>
+                <if test="worksId != null">#{worksId,jdbcType=INTEGER},</if>
+                <if test="userId != null">#{userId,jdbcType=INTEGER},</if>
+                <if test="eval1 != null">#{eval1,jdbcType=VARCHAR},</if>
+                <if test="eval2 != null">#{eval2,jdbcType=VARCHAR},</if>
+                <if test="eval3 != null">#{eval3,jdbcType=VARCHAR},</if>
+                <if test="eval4 != null">#{eval4,jdbcType=VARCHAR},</if>
+                <if test="eval5 != null">#{eval5,jdbcType=VARCHAR},</if>
+                <if test="eval6 != null">#{eval6,jdbcType=VARCHAR},</if>
+                <if test="evalTime != null">#{evalTime,jdbcType=TIMESTAMP},</if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.ruoyi.pojo.Evaluate">
+        update evaluate
+        <set>
+                <if test="worksId != null">
+                    works_id = #{worksId,jdbcType=INTEGER},
+                </if>
+                <if test="userId != null">
+                    user_id = #{userId,jdbcType=INTEGER},
+                </if>
+                <if test="eval1 != null">
+                    eval1 = #{eval1,jdbcType=VARCHAR},
+                </if>
+                <if test="eval2 != null">
+                    eval2 = #{eval2,jdbcType=VARCHAR},
+                </if>
+                <if test="eval3 != null">
+                    eval3 = #{eval3,jdbcType=VARCHAR},
+                </if>
+                <if test="eval4 != null">
+                    eval4 = #{eval4,jdbcType=VARCHAR},
+                </if>
+                <if test="eval5 != null">
+                    eval5 = #{eval5,jdbcType=VARCHAR},
+                </if>
+                <if test="eval6 != null">
+                    eval6 = #{eval6,jdbcType=VARCHAR},
+                </if>
+                <if test="evalTime != null">
+                    eval_time = #{evalTime,jdbcType=TIMESTAMP},
+                </if>
+        </set>
+        where   eval_id = #{evalId,jdbcType=INTEGER} 
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.ruoyi.pojo.Evaluate">
+        update evaluate
+        set 
+            works_id =  #{worksId,jdbcType=INTEGER},
+            user_id =  #{userId,jdbcType=INTEGER},
+            eval1 =  #{eval1,jdbcType=VARCHAR},
+            eval2 =  #{eval2,jdbcType=VARCHAR},
+            eval3 =  #{eval3,jdbcType=VARCHAR},
+            eval4 =  #{eval4,jdbcType=VARCHAR},
+            eval5 =  #{eval5,jdbcType=VARCHAR},
+            eval6 =  #{eval6,jdbcType=VARCHAR},
+            eval_time =  #{evalTime,jdbcType=TIMESTAMP}
+        where   eval_id = #{evalId,jdbcType=INTEGER} 
+    </update>
+</mapper>
