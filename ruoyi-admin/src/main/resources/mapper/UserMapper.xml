@@ -23,7 +23,7 @@
                 and rn.role = #{role}
             </if>
             <if test="school!=null and school!=''">
-                and u.school = #{school}
+                and u.school like '%'||#{school}||'%'
             </if>
             <if test="group!=null and group!=''">
                 and gn = #{group}

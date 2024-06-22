@@ -1,6 +1,10 @@
 package com.ruoyi.mapper;
 
 import com.ruoyi.pojo.RoleName;
+import io.swagger.annotations.ApiOperation;
+import org.apache.ibatis.annotations.Select;
+
+import java.util.List;
 
 /**
 * @author 曾文琪
@@ -10,4 +14,7 @@ import com.ruoyi.pojo.RoleName;
 */
 public interface RoleNameMapper {
 
+    @ApiOperation("查找所有角色数据")
+    @Select("select * from role_name")
+    List<RoleName> roleData();
 }

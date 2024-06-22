@@ -17,7 +17,7 @@ import java.util.List;
 */
 public interface UserMapper {
 
-    @Schema(title = "查询账户数据带分页")
+    @Schema(title = "查询账户数据带分页带模糊")
     List<UserList> list(@Param("group") String group, @Param("role") String role, @Param("school") String school);
 
     @Schema(title = "查询是否存在")

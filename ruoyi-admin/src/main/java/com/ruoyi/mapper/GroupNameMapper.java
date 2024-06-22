@@ -1,6 +1,10 @@
 package com.ruoyi.mapper;
 
 import com.ruoyi.pojo.GroupName;
+import io.swagger.annotations.ApiOperation;
+import org.apache.ibatis.annotations.Select;
+
+import java.util.List;
 
 /**
 * @author 曾文琪
@@ -9,5 +13,10 @@ import com.ruoyi.pojo.GroupName;
 * @Entity com.ruoyi.pojo.GroupName
 */
 public interface GroupNameMapper {
+
+    @ApiOperation("查找所有小组数据")
+    @Select("select * from group_name")
+    List<GroupName> groupData();
+
 
 }

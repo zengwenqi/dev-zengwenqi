@@ -24,7 +24,7 @@ public class UserServiceImpl implements UserService {
     @Autowired(required = false)
     private UserMapper userMapper;
 
-    @ApiOperation("查询账号数据带分页")
+    @ApiOperation("查询账号数据带分页带模糊")
     @Override
     public Result list(UserVo userVo) {
         PageHelper.startPage(userVo.getPageMa(),userVo.getPageSize());

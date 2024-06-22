@@ -13,5 +13,29 @@
             <result property="worksDate" column="works_date" jdbcType="TIMESTAMP"/>
     </resultMap>
 
+    <select id="list" resultType="com.ruoyi.pojo.vo.WorksList">
+        select w.works_id,u.school,gn.group,w.works_name,u.nickname,w.phone,w.scole,w.works_date from works w
+            join user u on w.user_id = u.user_id
+            join group_name gn on u.group_id = gn.group_id
+        <trim prefix="where" prefixOverrides="and">
+            <if test="nickname!=null and nickname!=''">
+                and u.nickname like '%'||#{nickname}||'%'
+            </if>
+            <if test="school!=null and school!=''">
+                and u.school like '%'||#{school}||'%'
+            </if>
+            <if test="worksName!=null and worksName!=''">
+                and w.works_name like '%'||#{worksName}||'%'
+            </if>
+        </trim>
+    </select>
+
+    <select id="getData" resultType="com.ruoyi.pojo.vo.WorksList">
+        select w.works_img,w.works_id,u.school,gn.group,w.works_name,u.nickname,w.phone,w.scole,w.works_date from works w
+            join user u on w.user_id = u.user_id
+            join group_name gn on u.group_id = gn.group_id
+        where
+            w.works_id = #{id}
+    </select>
 
 </mapper>

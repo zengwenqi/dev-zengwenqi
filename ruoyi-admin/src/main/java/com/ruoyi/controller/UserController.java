@@ -32,7 +32,7 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @ApiOperation("账号列表并查询带分页")
+    @ApiOperation("账号列表并查询带分页带模糊")
     @PostMapping("list")
     public Result list(@RequestBody UserVo userVo){
         log.info("接收到的数据是 {}",userVo);
