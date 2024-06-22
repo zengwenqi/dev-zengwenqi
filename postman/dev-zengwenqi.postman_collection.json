@@ -1,0 +1,472 @@
+{
+	"info": {
+		"_postman_id": "784bf02c-4769-4b5d-a20a-47c9a3852a47",
+		"name": "dev-zengwenqi",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "账号查询带分页",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Cookie",
+								"value": "Admin-Token=eyJhbGciOiJIUzUxMiJ9.eyJsb2dpbl91c2VyX2tleSI6ImQyOTc2ZmFiLTAwODctNGMwNy04NGQxLTJkZTRjNWY2YzE0MSJ9.Mu8KEGBXuEKHZsYLMRMLjLHp8IpxQRJAVXwhjyQm4Zc4MYPUlWkBF28aLrhgvTR5umFsnJ72IGJ7mhTlTYaJyQ",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJsb2dpbl91c2VyX2tleSI6ImQyOTc2ZmFiLTAwODctNGMwNy04NGQxLTJkZTRjNWY2YzE0MSJ9.Mu8KEGBXuEKHZsYLMRMLjLHp8IpxQRJAVXwhjyQm4Zc4MYPUlWkBF28aLrhgvTR5umFsnJ72IGJ7mhTlTYaJyQ",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"role\":\"\",\r\n    \"school\":\"\",\r\n    \"group\":\"\",\r\n    \"pageSize\":\"10\",\r\n    \"pageMa\":\"1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/zengwenqi/user/list",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"zengwenqi",
+								"user",
+								"list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "新增账号数据",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Cookie",
+								"value": "Admin-Token=eyJhbGciOiJIUzUxMiJ9.eyJsb2dpbl91c2VyX2tleSI6IjdiZDQ1NzQxLWM2OTQtNDVhNy1hNzVjLTk3YmYzNzA3ZjAyNCJ9.f2ssCNOKUGtM0h364-WaYaOTEcoQPX8rwSw6x4wAncgm1lDKNCfBTidyRnjxKqsYJa3S_hG_0xhJ7QBvTDiIpA",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJsb2dpbl91c2VyX2tleSI6IjdiZDQ1NzQxLWM2OTQtNDVhNy1hNzVjLTk3YmYzNzA3ZjAyNCJ9.f2ssCNOKUGtM0h364-WaYaOTEcoQPX8rwSw6x4wAncgm1lDKNCfBTidyRnjxKqsYJa3S_hG_0xhJ7QBvTDiIpA",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nickname\":\"王五\",\r\n    \"school\":\"浙江理工大学\",\r\n    \"roleId\":\"2\",\r\n    \"groupId\":\"3\",\r\n    \"username\":\"3\",\r\n    \"password\":\"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/zengwenqi/user/add",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"zengwenqi",
+								"user",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "删除用户数据",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Cookie",
+								"value": "Admin-Token=eyJhbGciOiJIUzUxMiJ9.eyJsb2dpbl91c2VyX2tleSI6IjdiZDQ1NzQxLWM2OTQtNDVhNy1hNzVjLTk3YmYzNzA3ZjAyNCJ9.f2ssCNOKUGtM0h364-WaYaOTEcoQPX8rwSw6x4wAncgm1lDKNCfBTidyRnjxKqsYJa3S_hG_0xhJ7QBvTDiIpA",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJsb2dpbl91c2VyX2tleSI6IjdiZDQ1NzQxLWM2OTQtNDVhNy1hNzVjLTk3YmYzNzA3ZjAyNCJ9.f2ssCNOKUGtM0h364-WaYaOTEcoQPX8rwSw6x4wAncgm1lDKNCfBTidyRnjxKqsYJa3S_hG_0xhJ7QBvTDiIpA",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/zengwenqi/user/delete/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"zengwenqi",
+								"user",
+								"delete",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "更新数据",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Cookie",
+								"value": "Admin-Token=eyJhbGciOiJIUzUxMiJ9.eyJsb2dpbl91c2VyX2tleSI6IjdiZDQ1NzQxLWM2OTQtNDVhNy1hNzVjLTk3YmYzNzA3ZjAyNCJ9.f2ssCNOKUGtM0h364-WaYaOTEcoQPX8rwSw6x4wAncgm1lDKNCfBTidyRnjxKqsYJa3S_hG_0xhJ7QBvTDiIpA",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJsb2dpbl91c2VyX2tleSI6IjdiZDQ1NzQxLWM2OTQtNDVhNy1hNzVjLTk3YmYzNzA3ZjAyNCJ9.f2ssCNOKUGtM0h364-WaYaOTEcoQPX8rwSw6x4wAncgm1lDKNCfBTidyRnjxKqsYJa3S_hG_0xhJ7QBvTDiIpA",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userId\":\"2\",\r\n    \"nickname\":\"老刘\",\r\n    \"school\":\"重庆理工大学\",\r\n    \"roleId\":\"2\",\r\n    \"groupId\":\"5\",\r\n    \"username\":\"5\",\r\n    \"password\":\"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/zengwenqi/user/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"zengwenqi",
+								"user",
+								"update"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "works",
+			"item": [
+				{
+					"name": "查询小组数据下拉框",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Cookie",
+								"value": "Admin-Token=eyJhbGciOiJIUzUxMiJ9.eyJsb2dpbl91c2VyX2tleSI6IjU1MTRiZTIwLTYzNjYtNGFhNS1hYzQwLTBmOTIzNmM1M2QwMyJ9.4VhtfTg3yzPCgLYuQRn6s70WvmmZwZ_HEbD6Y9_KRnDhW3HP7ZbgUfHFeiwtyoZ4xauoKwZsDs_Q53KYuEUb0A",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJsb2dpbl91c2VyX2tleSI6IjU1MTRiZTIwLTYzNjYtNGFhNS1hYzQwLTBmOTIzNmM1M2QwMyJ9.4VhtfTg3yzPCgLYuQRn6s70WvmmZwZ_HEbD6Y9_KRnDhW3HP7ZbgUfHFeiwtyoZ4xauoKwZsDs_Q53KYuEUb0A",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/zengwenqi/portal/groupData",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"zengwenqi",
+								"portal",
+								"groupData"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "查询角色下拉框数据",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Cookie",
+								"value": "Admin-Token=eyJhbGciOiJIUzUxMiJ9.eyJsb2dpbl91c2VyX2tleSI6IjU1MTRiZTIwLTYzNjYtNGFhNS1hYzQwLTBmOTIzNmM1M2QwMyJ9.4VhtfTg3yzPCgLYuQRn6s70WvmmZwZ_HEbD6Y9_KRnDhW3HP7ZbgUfHFeiwtyoZ4xauoKwZsDs_Q53KYuEUb0A",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJsb2dpbl91c2VyX2tleSI6IjU1MTRiZTIwLTYzNjYtNGFhNS1hYzQwLTBmOTIzNmM1M2QwMyJ9.4VhtfTg3yzPCgLYuQRn6s70WvmmZwZ_HEbD6Y9_KRnDhW3HP7ZbgUfHFeiwtyoZ4xauoKwZsDs_Q53KYuEUb0A",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/zengwenqi/portal/roleData",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"zengwenqi",
+								"portal",
+								"roleData"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "添加作品数据",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Cookie",
+								"value": "Admin-Token=eyJhbGciOiJIUzUxMiJ9.eyJsb2dpbl91c2VyX2tleSI6IjU1MTRiZTIwLTYzNjYtNGFhNS1hYzQwLTBmOTIzNmM1M2QwMyJ9.4VhtfTg3yzPCgLYuQRn6s70WvmmZwZ_HEbD6Y9_KRnDhW3HP7ZbgUfHFeiwtyoZ4xauoKwZsDs_Q53KYuEUb0A",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJsb2dpbl91c2VyX2tleSI6IjU1MTRiZTIwLTYzNjYtNGFhNS1hYzQwLTBmOTIzNmM1M2QwMyJ9.4VhtfTg3yzPCgLYuQRn6s70WvmmZwZ_HEbD6Y9_KRnDhW3HP7ZbgUfHFeiwtyoZ4xauoKwZsDs_Q53KYuEUb0A",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userId\":\"2\",\r\n    \"worksName\":\"一览图\",\r\n    \"phone\":\"17784736184\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/zengwenqi/works/add",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"zengwenqi",
+								"works",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "搜索作品带分页带模糊",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Cookie",
+								"value": "Admin-Token=eyJhbGciOiJIUzUxMiJ9.eyJsb2dpbl91c2VyX2tleSI6IjU1MTRiZTIwLTYzNjYtNGFhNS1hYzQwLTBmOTIzNmM1M2QwMyJ9.4VhtfTg3yzPCgLYuQRn6s70WvmmZwZ_HEbD6Y9_KRnDhW3HP7ZbgUfHFeiwtyoZ4xauoKwZsDs_Q53KYuEUb0A",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJsb2dpbl91c2VyX2tleSI6IjU1MTRiZTIwLTYzNjYtNGFhNS1hYzQwLTBmOTIzNmM1M2QwMyJ9.4VhtfTg3yzPCgLYuQRn6s70WvmmZwZ_HEbD6Y9_KRnDhW3HP7ZbgUfHFeiwtyoZ4xauoKwZsDs_Q53KYuEUb0A",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"worksName\":\"览\",\r\n    \"school\":\"\",\r\n    \"nickname\":\"\",\r\n    \"pageMa\":\"1\",\r\n    \"pageSize\":\"5\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/zengwenqi/works/list",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"zengwenqi",
+								"works",
+								"list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "查看作品详情",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Cookie",
+								"value": "Admin-Token=eyJhbGciOiJIUzUxMiJ9.eyJsb2dpbl91c2VyX2tleSI6IjU1MTRiZTIwLTYzNjYtNGFhNS1hYzQwLTBmOTIzNmM1M2QwMyJ9.4VhtfTg3yzPCgLYuQRn6s70WvmmZwZ_HEbD6Y9_KRnDhW3HP7ZbgUfHFeiwtyoZ4xauoKwZsDs_Q53KYuEUb0A",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJsb2dpbl91c2VyX2tleSI6IjU1MTRiZTIwLTYzNjYtNGFhNS1hYzQwLTBmOTIzNmM1M2QwMyJ9.4VhtfTg3yzPCgLYuQRn6s70WvmmZwZ_HEbD6Y9_KRnDhW3HP7ZbgUfHFeiwtyoZ4xauoKwZsDs_Q53KYuEUb0A",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/zengwenqi/works/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"zengwenqi",
+								"works",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "eval",
+			"item": [
+				{
+					"name": "添加评价",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Cookie",
+								"value": "eyJhbGciOiJIUzUxMiJ9.eyJsb2dpbl91c2VyX2tleSI6ImEzNDNkNjUwLTdkYjgtNDQ2Yy05ODA3LWZkMDdmZDg5NTcwNSJ9.9v_Ldv-reTr05cz3O9l3czl6uJenMHDHJUoGDsZp2GSrOzq_n_zXixuukVw19zgUm7uRzxaz8BSh8WNXbN9Gew",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJsb2dpbl91c2VyX2tleSI6ImEzNDNkNjUwLTdkYjgtNDQ2Yy05ODA3LWZkMDdmZDg5NTcwNSJ9.9v_Ldv-reTr05cz3O9l3czl6uJenMHDHJUoGDsZp2GSrOzq_n_zXixuukVw19zgUm7uRzxaz8BSh8WNXbN9Gew",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"worksId\":\"1\",\r\n    \"userId\":\"1\",\r\n    \"vipNickname\":\"王五\",\r\n    \"eval1\":\"23\",\r\n    \"eval2\":\"12\",\r\n    \"eval3\":\"22\",\r\n    \"eval4\":\"21\",\r\n    \"eval5\":\"12\",\r\n    \"eval6\":\"6\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/zengwenqi/evaluate/add",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"zengwenqi",
+								"evaluate",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "查询评价列表带分页带模糊",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Cookie",
+								"value": "eyJhbGciOiJIUzUxMiJ9.eyJsb2dpbl91c2VyX2tleSI6ImEzNDNkNjUwLTdkYjgtNDQ2Yy05ODA3LWZkMDdmZDg5NTcwNSJ9.9v_Ldv-reTr05cz3O9l3czl6uJenMHDHJUoGDsZp2GSrOzq_n_zXixuukVw19zgUm7uRzxaz8BSh8WNXbN9Gew",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJsb2dpbl91c2VyX2tleSI6ImEzNDNkNjUwLTdkYjgtNDQ2Yy05ODA3LWZkMDdmZDg5NTcwNSJ9.9v_Ldv-reTr05cz3O9l3czl6uJenMHDHJUoGDsZp2GSrOzq_n_zXixuukVw19zgUm7uRzxaz8BSh8WNXbN9Gew",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"vipNickname\":\"王\",\r\n    \"worksName\":\"一\",\r\n    \"school\":\"理工\",\r\n    \"nickname\":\"老\",\r\n    \"group\":\"\",\r\n    \"pageMa\":\"1\",\r\n    \"pageSize\":\"5\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/zengwenqi/evaluate/list",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"zengwenqi",
+								"evaluate",
+								"list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "根据id查询数据",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Cookie",
+								"value": "Admin-Token=eyJhbGciOiJIUzUxMiJ9.eyJsb2dpbl91c2VyX2tleSI6ImEzNDNkNjUwLTdkYjgtNDQ2Yy05ODA3LWZkMDdmZDg5NTcwNSJ9.9v_Ldv-reTr05cz3O9l3czl6uJenMHDHJUoGDsZp2GSrOzq_n_zXixuukVw19zgUm7uRzxaz8BSh8WNXbN9Gew",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJsb2dpbl91c2VyX2tleSI6ImEzNDNkNjUwLTdkYjgtNDQ2Yy05ODA3LWZkMDdmZDg5NTcwNSJ9.9v_Ldv-reTr05cz3O9l3czl6uJenMHDHJUoGDsZp2GSrOzq_n_zXixuukVw19zgUm7uRzxaz8BSh8WNXbN9Gew",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/zengwenqi/evaluate/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"zengwenqi",
+								"evaluate",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
