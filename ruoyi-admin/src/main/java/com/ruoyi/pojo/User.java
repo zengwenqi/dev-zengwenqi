@@ -11,6 +11,7 @@ import lombok.Data;
 @Data
 @Schema(title = "用户对象")
 public class User implements Serializable {
+
     @Schema(title = "账号id")
     private Integer userId;
 

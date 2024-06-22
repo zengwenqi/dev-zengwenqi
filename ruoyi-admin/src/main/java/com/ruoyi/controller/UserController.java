@@ -24,6 +24,7 @@ import java.util.UUID;
 @RestController
 @RequestMapping("/zengwenqi/user")
 @Slf4j
+@SuppressWarnings("all")
 public class UserController {
 
     @Value("${file.upload-file}")

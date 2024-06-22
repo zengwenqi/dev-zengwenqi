@@ -2,6 +2,7 @@ package com.ruoyi.mapper;
 
 import com.ruoyi.pojo.GroupName;
 import io.swagger.annotations.ApiOperation;
+import io.swagger.v3.oas.annotations.media.Schema;
 import org.apache.ibatis.annotations.Select;
 
 import java.util.List;
@@ -14,7 +15,7 @@ import java.util.List;
 */
 public interface GroupNameMapper {
 
-    @ApiOperation("查找所有小组数据")
+    @Schema(title = "查找所有小组数据")
     @Select("select * from group_name")
     List<GroupName> groupData();
 

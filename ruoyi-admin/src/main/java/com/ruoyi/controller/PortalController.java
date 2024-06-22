@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 @Api("公共请求数据的api")
 @RestController
 @RequestMapping("/zengwenqi/portal")
+@SuppressWarnings("all")
 public class PortalController {
 
     @Autowired

@@ -23,7 +23,7 @@ public interface WorksMapper {
     @Schema(title = "获取指定id的数据")
     WorksList getData(@Param("id") Integer id);
 
-    @ApiOperation("添加作品数据")
+    @Schema(title = "添加作品数据")
     @Insert("insert into works values (default,#{userId},#{worksName},#{phone},null,default,null)")
     Integer add(Works works);
 }

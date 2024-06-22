@@ -6,6 +6,7 @@ import lombok.Data;
 @Data
 @Schema(title = "接收查询结果和分页数据的对象")
 public class UserVo {
+
     @Schema(title = "角色名")
     private String role;
 

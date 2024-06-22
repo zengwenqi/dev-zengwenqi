@@ -2,10 +2,8 @@ package com.ruoyi.mapper;
 
 import com.ruoyi.pojo.User;
 import com.ruoyi.pojo.vo.UserList;
-import com.ruoyi.pojo.vo.UserVo;
 import io.swagger.v3.oas.annotations.media.Schema;
 import org.apache.ibatis.annotations.Param;
-import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
 

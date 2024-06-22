@@ -1,26 +1,23 @@
-package com.ruoyi.pojo;
-
-import java.io.Serializable;
-import java.util.Date;
+package com.ruoyi.pojo.vo;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
-/**
- * @TableName evaluate
- */
+@Schema(title = "评价响应配置")
 @Data
-@Schema(title = "评价数据对象")
-public class Evaluate implements Serializable {
+public class EvaluateList {
 
     @Schema(title = "评价id")
     private Integer evalId;
 
-    @Schema(title = "作品id")
-    private Integer worksId;
+    @Schema(title = "学校名")
+    private String school;
 
-    @Schema(title = "账号id")
-    private Integer userId;
+    @Schema(title = "作品名")
+    private String worksName;
+
+    @Schema(title = "参赛人")
+    private String nickname;
 
     @Schema(title = "评委名")
     private String vipNickname;
@@ -44,7 +41,5 @@ public class Evaluate implements Serializable {
     private String eval6;
 
     @Schema(title = "评分时间")
-    private Date evalTime;
-
-    private static final long serialVersionUID = 1L;
+    private String evalTime;
 }

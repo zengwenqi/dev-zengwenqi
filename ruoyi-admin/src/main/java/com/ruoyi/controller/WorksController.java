@@ -1,7 +1,6 @@
 package com.ruoyi.controller;
 
 import com.ruoyi.pojo.Works;
-import com.ruoyi.pojo.vo.UserVo;
 import com.ruoyi.pojo.vo.WorksVo;
 import com.ruoyi.service.WorksService;
 import com.ruoyi.web.controller.tool.Result;
@@ -15,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 @Api("作品接口api")
 @RequestMapping("/zengwenqi/works")
 @Slf4j
+@SuppressWarnings("all")
 public class WorksController {
 
     @Autowired

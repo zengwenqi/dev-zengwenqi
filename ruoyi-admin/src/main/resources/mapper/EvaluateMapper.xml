@@ -17,5 +17,38 @@
             <result property="evalTime" column="eval_time" jdbcType="TIMESTAMP"/>
     </resultMap>
 
+        <select id="list" resultType="com.ruoyi.pojo.vo.EvaluateList">
+                select e.eval_id,gn.group,u.school,w.works_name,u.nickname,e.vip_nickname,e.eval1,
+                       e.eval2,e.eval3,e.eval4,e.eval5,e.eval6,e.eval_time from evaluate e
+                join works w on e.works_id = w.works_id
+                join user u on e.user_id = u.user_id
+                join group_name gn on u.group_id = gn.group_id
+                <trim prefix="where" prefixOverrides="and">
+                        <if test="vipNickname!=null and vipNickname!=''">
+                                and e.vip_nickname like '%'||#{vipNickname}||'%'
+                        </if>
+                        <if test="worksName!=null and worksName!=''">
+                                and w.works_name like '%'||#{worksName}||'%'
+                        </if>
+                        <if test="school!=null and school!=''">
+                                and u.school like '%'||#{school}||'%'
+                        </if>
+                        <if test="nickname!=null and nickname!=''">
+                                and u.nickname like '%'||#{nickname}||'%'
+                        </if>
+                        <if test="group!=null and group!=''">
+                                and gn.group = #{group}
+                        </if>
+                </trim>
+        </select>
 
+        <select id="search" resultType="com.ruoyi.pojo.vo.EvaluateList">
+                select e.eval_id,gn.group,u.school,w.works_name,u.nickname,e.vip_nickname,e.eval1,
+                e.eval2,e.eval3,e.eval4,e.eval5,e.eval6,e.eval_time from evaluate e
+                join works w on e.works_id = w.works_id
+                join user u on e.user_id = u.user_id
+                join group_name gn on u.group_id = gn.group_id
+                where
+                    e.eval_id = #{id}
+        </select>
 </mapper>

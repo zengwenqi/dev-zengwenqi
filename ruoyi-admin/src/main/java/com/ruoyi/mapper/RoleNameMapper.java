@@ -2,6 +2,7 @@ package com.ruoyi.mapper;
 
 import com.ruoyi.pojo.RoleName;
 import io.swagger.annotations.ApiOperation;
+import io.swagger.v3.oas.annotations.media.Schema;
 import org.apache.ibatis.annotations.Select;
 
 import java.util.List;
@@ -14,7 +15,7 @@ import java.util.List;
 */
 public interface RoleNameMapper {
 
-    @ApiOperation("查找所有角色数据")
+    @Schema(title = "查找所有角色数据")
     @Select("select * from role_name")
     List<RoleName> roleData();
 }
